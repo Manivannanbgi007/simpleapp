@@ -31,8 +31,8 @@ services:
       - /var/log:/var/log
       - /var/lib/docker/containers:/var/lib/docker/containers:ro
       - /etc/promtail:/etc/promtail
-      - /etc/hostname:/etc/hostname
-      - /etc/machine-id:/etc/machine-id
+     # - /etc/hostname:/etc/hostname
+     # - /etc/machine-id:/etc/machine-id
     command: -config.file=/etc/promtail/promtail.yaml
     depends_on:
       - loki

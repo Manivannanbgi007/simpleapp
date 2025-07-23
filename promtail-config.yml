@@ -15,6 +15,6 @@ scrape_configs:
           - localhost
         labels:
           job: docker
-          __path__: /var/lib/springboot-app/containers/*/*.log
+          __path__: /var/lib/docker/containers/*/*.log
     pipeline_stages:
       - docker: {}

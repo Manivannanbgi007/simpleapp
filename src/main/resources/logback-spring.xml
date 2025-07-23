@@ -1,6 +1,7 @@
 <configuration>
+  <property name="LOG_PATH" value="${LOG_PATH:-./logs}"/>
   <appender name="FILE" class="ch.qos.logback.core.FileAppender">
-    <file>logs/simpleapp.log</file>
+    <file>${LOG_PATH}/simpleapp.log</file>
     <append>true</append>
     <encoder class="net.logstash.logback.encoder.LogstashEncoder" />
   </appender>

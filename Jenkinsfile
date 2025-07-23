@@ -15,25 +15,25 @@ pipeline {
 
         stage('Build JAR') {
             steps {
-                sh './mvnw clean package -DskipTests'
+                bat './mvnw clean package -DskipTests'
             }
         }
 
         stage('Build Docker Image') {
             steps {
-                sh 'docker build -t $DOCKER_IMAGE .'
+                bat 'docker build -t $DOCKER_IMAGE .'
             }
         }
 
         stage('Stop Existing Containers') {
             steps {
-                sh 'docker-compose down || true'
+                bat 'docker-compose down || true'
             }
         }
 
         stage('Deploy via Docker Compose') {
             steps {
-                sh 'docker-compose up -d --build'
+                bat 'docker-compose up -d --build'
             }
         }
     }

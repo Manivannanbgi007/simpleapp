@@ -8,13 +8,6 @@ pipeline {
     }
 
     stages {
-		stage('Prepare Log Directory') {
-            steps {
-                // Create logs directory and set permissions
-                bat 'mkdir logs || exit 0'
-                bat 'chmod -R 777 logs'
-            }
-        }
         stage('Clone Repository') {
             steps {
 			    git url: 'https://github.com/Manivannanbgi007/simpleapp.git', branch: 'main'

@@ -22,7 +22,7 @@ services:
     container_name: promtail
     volumes:
       - ./promtail-config.yml:/etc/promtail/config.yml
-      - ./logs:/logs  # Same log volume as springboot
+      - ./logs:/app/logs  # Same log volume as springboot
     command: -config.file=/etc/promtail/config.yml
     depends_on:
       - loki

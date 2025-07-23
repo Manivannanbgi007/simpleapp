@@ -4,7 +4,7 @@ pipeline {
     environment {
         APP_NAME = "springboot-app"
         DOCKER_IMAGE = "springboot-app"
-        DOCKER_BUILDKIT = '0'
+        // DOCKER_BUILDKIT = '0'
     }
 
     stages {

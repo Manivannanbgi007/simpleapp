@@ -9,8 +9,7 @@ pipeline {
     stages {
         stage('Clone Repository') {
             steps {
-			    git branch: 'main',
-                    git 'https://github.com/Manivannanbgi007/simpleapp.git'
+			    git url: 'https://github.com/Manivannanbgi007/simpleapp.git', branch: 'main'
             }
         }
 

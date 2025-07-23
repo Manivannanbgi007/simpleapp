@@ -8,6 +8,18 @@ pipeline {
     }
 
     stages {
+		stage('Prepare Log Directory') {
+		    steps {
+		        bat 'mkdir logs || exit 0'
+		        bat 'chown 1000:1000 logs'
+		        bat 'chmod -R 775 logs'
+		    }
+		}
+		stage('Debug Permissions') {
+		    steps {
+		        bat 'ls -la logs'
+		    }
+		}
         stage('Clone Repository') {
             steps {
 			    git url: 'https://github.com/Manivannanbgi007/simpleapp.git', branch: 'main'

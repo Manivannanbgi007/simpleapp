@@ -4,6 +4,7 @@ pipeline {
     environment {
         APP_NAME = "simpleapp"
         DOCKER_IMAGE = "simpleapp:latest"
+        DOCKER_BUILDKIT = '0'
     }
 
     stages {

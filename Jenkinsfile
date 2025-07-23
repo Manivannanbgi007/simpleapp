@@ -11,7 +11,7 @@ pipeline {
 		stage('Prepare Log Directory') {
 		    steps {
 		        bat 'mkdir logs || exit 0'
-		        bat 'chown 1000:1000 logs'
+		        // bat 'chown 1000:1000 logs'
 		        bat 'chmod -R 775 logs'
 		    }
 		}

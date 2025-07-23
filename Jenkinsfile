@@ -2,8 +2,8 @@ pipeline {
     agent any
 
     environment {
-        APP_NAME = "simpleapp"
-        DOCKER_IMAGE = "simpleapp:latest"
+        APP_NAME = "springboot-app"
+        DOCKER_IMAGE = "springboot-app"
         DOCKER_BUILDKIT = '0'
     }
 

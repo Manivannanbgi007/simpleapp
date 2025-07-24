@@ -18,3 +18,14 @@ scrape_configs:
           __path__: /var/lib/docker/containers/*/*.log
     pipeline_stages:
       - docker: {}
+      - regex:
+          expression: '.*(INFO|ERROR).*'
+      - match:
+          selector: '{job="docker"}'
+          stages:
+            - output:
+                source: message
+    relabel_configs:
+      - source_labels: [__meta_docker_container_name]
+        regex: "/springboot-app"         # <<< Match your container name
+        action: keep                     # <<< Keep only this container's logs

@@ -15,20 +15,17 @@ scrape_configs:
           - localhost
         labels:
           job: springboot
+          container: springboot-app
           __path__: /var/lib/docker/containers/*/*.log
+
     pipeline_stages:
       - docker: {}
-      - json:
-        expressions:
-          level: level
       - regex:
           expression: '.*(INFO|ERROR).*'
-      - match:
-          selector: '{job="springboot"}'
-          stages:
-            - output:
-                source: message
+      - output:
+          source: message   # ✅ this is a single stage, not nested under `match`
+
     relabel_configs:
       - source_labels: [container]
-        regex: "/springboot-app"         # <<< Match your container name
-        action: keep                     # <<< Keep only this container's logs
+        regex: springboot-app
+        action: keep
